@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="root">
+			<h1 @click="aaa"> Hello {{cont}}</h1>
+			<abc></abc>
+		</div>
+			
+		<script type="text/javascript">
+			// Vue组件
+			Vue.component('abc',{
+				template:'<h2>Hello</h2>'
+			})
+			
+			// Vue实例
+			new Vue({
+				// 挂载点  (接管)
+				el:'#root',  //只有挂载点才可以用
+				// 数据
+				data:{
+					cont:'Everyone'
+				},
+				// 方法
+				methods:{
+					aaa:function(){
+						this.cont='Everybody'
+					}
+				}
+			})
+			
+			
+			
+		</script>
+		
+	</body>
+</html>
