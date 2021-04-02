@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background: #87CEFA;
+				padding: 3vw;
+			}
+			header{
+				display: flex;
+				justify-content: space-around;
+				background: gray;
+				padding: 2vw;
+				font-size: 2vw;
+				border-radius: 1vw;
+			}
+			span,ul{
+				color: snow;
+			}
+			span{
+				font-size: 2vw;
+			}
+			input{
+				width: 60vw;
+				font-size: 2vw;
+				padding-left: 1vw;
+				/* border-radius: .5vw; */
+			}
+			button{
+				width: 8vw;
+				font-size: 1.5vw;
+				height: 3vw
+			}
+		</style>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<main id='root'>
+			<header>
+				<span>TODOList</span>
+				<input type="text"placeholder="请输入代办事项" v-model="inputValue"/>
+				<button @click="handelClick">添加</button>
+			</header>
+			<ul>
+				<!-- <li v-for="(item,idx) of list" :key='idx'>{{item}}</li> -->
+				<!-- 调用注册的组件（只能用分隔式标签名） -->
+				<todo-li v-for='(item,idx) of list' :key='idx' :content="item"></todo-li >
+			</ul>
+		</main>
+		
+		<script type="text/javascript">
+			// 注册局部组件 (Vue组件名称建议使用大写开头驼峰式)
+			let TodoItem = ('TodoLi',{
+				//接收父组件传递的值
+				props:['content'],
+				//子组件的模板
+				template:'<li>{{content}}</li>'
+			})
+			
+			new Vue({
+				el:'#root',
+				components:{
+					TodoLi:TodoItem
+				},
+				data:{
+					inputValue:'',
+					list:[],
+					
+				},
+				methods:{
+					handelClick:function () {
+						//用户输入值添加到数组中
+						this.list.push(this.inputValue)
+						//清空用户输入值
+						this.inputValue=''
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
