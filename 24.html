@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				
+			}
+			h2{
+				background: lightgray;
+				text-align: center;
+				cursor: pointer;
+				user-select: none;
+			}
+			.check{
+				color: orange;
+			}
+		</style>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">    <!-- 父组件 -->
+		
+			<son :content='ABC'></son>
+			<son></son>
+		</div>
+		
+		
+		<script type="text/javascript">
+			//子组件
+			Vue.component('son',{
+				//子组件接收父组件传值
+				props:{
+					//效验content传递的值
+					content:{
+						//类型：字符串
+						type:String,
+						//必须项
+						require:true,
+						default:'效验不通过',
+						
+					}
+				}
+			})
+			//也是父组件   （俩都是）
+			new Vue ({
+				el:'#app',
+				data:{
+					sum:0
+				}
+				data:{
+					info:'ABC'
+				}
+			})
+		</script>
+	</body>
+</html>
