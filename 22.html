@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			h2{
+				background: lightgray;
+				text-align: center;
+				cursor: pointer;
+				user-select: none;
+			}
+			.check{
+				color: orange;
+			}
+		</style>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			数字A：<num></num>
+			数字B：<num></num>
+		</div>
+		
+		
+		<script type="text/javascript">
+			//组件监听传值
+			Vue.component('num',{
+				template:'<h2 @click="handleClick" >{{number}}</h2>',
+				data:function (){
+					return {number:0}
+				},
+				methods:{
+					handleClick:function () {
+						this.number++
+					}
+				}
+			})
+			
+			new Vue ({
+				el:'#app',
+				methods:{ 
+					
+				}
+			})
+		</script>
+	</body>
+</html>
