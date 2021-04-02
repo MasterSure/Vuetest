@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+		<style type="text/css">
+			*{
+				font-size: 24px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="root">
+			<form action="#" method="post">
+				姓：<input type="text" id="nameA" value="Lian" /> <br>
+				名：<input type="text" id="nameB" value="Shuo" /> <br>
+				<input type="button" value="整合"/>
+			</form>
+			<h3></h3>
+		</div>
+		
+		<script type="text/javascript">
+			// 原生JS整合
+			let $=document.querySelectorAll.bind(document)
+			$('[type="button"]')[0].onclick=function () {
+				$('h3')[0].innerHTML=$('input')[0].value+$('input')[1].value
+			}
+			
+			new Vue({
+				// el:'#root',
+				data:{
+					
+				}
+			})
+		</script>
+	</body>
+</html>
