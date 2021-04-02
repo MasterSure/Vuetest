@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			h2{
+				background: lightgray;
+				text-align: center;
+				cursor: pointer;
+				user-select: none;
+			}
+			.check{
+				color: orange;
+			}
+		</style>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h2 :class="[isChecked]" @click="handleClick" >HELLO WORLD</h2>
+			<h3 class="check">WELCOME</h3>
+		</div>
+		
+		
+		<script type="text/javascript">
+			new Vue ({
+				el:'#app',
+				data:{
+					isChecked:''
+				},
+				methods:{
+					handleClick:function (){
+						
+						if (this.isChecked=='check') {
+							this.isChecked=''
+						} else{
+							this.isChecked='check'
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
