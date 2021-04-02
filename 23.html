@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			h2{
+				background: lightgray;
+				text-align: center;
+				cursor: pointer;
+				user-select: none;
+			}
+			.check{
+				color: orange;
+			}
+		</style>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">    <!-- 父组件 -->
+			<!-- 自定义change事件 -->
+			<!-- 父组件监听自定义change事件，执行handleChange方法 -->
+			数字A：<num @change='handleChange'></num>
+			数字B：<num @change='handleChange'></num>
+			求和：<h2>{{sum}}</h2>
+		</div>
+		
+		
+		<script type="text/javascript">
+			//组件监听传值
+			//子组件
+			Vue.component('num',{
+				template:'<h2 @click="handleClick" >{{number}}</h2>',
+				//vue组件里的data要return使用
+				data:function (){
+					return {number:0}
+				},
+				methods:{
+					handleClick:function () {
+						this.number++
+						// 子组件改变,触发change事件,传递给父组件
+						this.$emit('change')
+					}
+				}
+			})
+			//也是父组件   （俩都是）
+			new Vue ({
+				el:'#app',
+				data:{
+					sum:0
+				}
+				methods:{ 
+					handleChange:function () {
+						alert('CHANGE!')
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
