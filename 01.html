@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<!-- Vue挂件 -->
+		<div id="root">
+			<h1>Hello Word 2020</h1>
+			<h1>8月12日</h1>
+			<h3 v-html="content">
+				<u>Everybody</u>
+				
+			</h3>
+		</div>
+		<p>Enjoy the Summer!</p>
+		
+		<script type="text/javascript">
+			// Vue实例
+			let aaa = new Vue({
+				// 挂载点  (接管)
+				el:'#root',  //只有挂载点才可以用
+				// 模板
+				// template:'<h2>Hello Vue.js 2020</h2>',
+				// template:'<h2>Hello {{info}} {{year}} </h2>',
+				data:{
+					info:'Vue.js',
+					year: 2020,
+					content:'<i>Everyone</i>'
+				}
+			})
+			
+			setTimeout(function(){
+				aaa.$data.content=' <s>Boys &Girls </s> '
+			},2000)
+			
+		</script>
+		
+	</body>
+</html>
