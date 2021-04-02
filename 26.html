@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">  
+			<son cont='
+				<ul>
+					<li>AAA</li>
+					<li>BBB</li>
+					<li>CCC</li>
+				</ul>
+			'>
+				
+			</son>
+		</div>
+		
+		
+		<script type="text/javascript">
+			//子组件
+			Vue.component('son',{
+				props:['cont']
+				template:'<h2 <i v-html="this.cont"> </i> </h2>',
+			})
+			//父组件
+			new Vue ({
+				el:'#app',
+				
+			})
+		</script>
+	</body>
+</html>
+
