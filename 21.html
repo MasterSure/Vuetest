@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			h2{
+				background: lightgray;
+				text-align: center;
+				cursor: pointer;
+				user-select: none;
+			}
+			.check{
+				color: orange;
+			}
+		</style>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 创建引用来操作DOM -->
+			<h2 ref='oH2' @click="handleClick" >
+				<s>HELLO WORLD</s>
+			</h2>
+		</div>
+		
+		
+		<script type="text/javascript">
+			new Vue ({
+				el:'#app',
+				methods:{ 
+					handleClick:function (){
+						
+						alert(this.$refs.oH2.innerText)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
