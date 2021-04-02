@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">  
+			<!-- 子组件只能绑定自定义事件，原生click事件失效 -->
+			<son @click='handleClick'></son>
+		</div>
+		
+		
+		<script type="text/javascript">
+			//子组件
+			Vue.component('son',{
+				//在模板上绑定原生click事件可正确触发
+				template:'<h2 @click="handleClick">子组件</h2>',
+				methods:{
+					handleClick:function () {
+						alert('BBB')
+					}
+				}
+			})
+			//也是父组件   （俩都是）
+			new Vue ({
+				el:'#app',
+				methods:{
+					handleClick:function (){
+						alert('AAA')
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
+
