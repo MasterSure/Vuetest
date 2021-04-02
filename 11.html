@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="root">
+			<ul>
+				<!-- 建议使用循环体的唯一标识绑定key值（不太建议直接使用循环索引值） -->
+				<li v-for="(item,idx) of list" :key='item.id'>{{item.id}}-----{{item.value}}-----{{idx}}</li>
+			</ul>
+		</div>
+		
+		<script type="text/javascript">
+			new Vue({
+				el:'#root',
+				data:{
+					list:[
+						{id:'a001',value:'AAA'},
+						{id:'a002',value:'AAA'},
+						{id:'a003',value:'AAA'},
+						{id:'a004',value:'AAA'},
+						{id:'a005',value:'AAA'}
+					]
+				}
+			})
+		</script>
+	</body>
+</html>
