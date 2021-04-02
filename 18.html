@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+			<h1 id="app">HELLO WORLD</h1>
+			
+			<script type="text/javascript">
+				new Vue({
+					el:'#app',
+					template:'<h1>{{info}}</h1> ',
+					data:{
+						info:'HELLO Vue'
+					},
+					//创建
+					beforeCreate:function () {
+						console.log('beforCreat已执行！')
+					},
+					created:function () {
+						console.log('Created已执行！')
+					},
+					//挂载
+					beforeMount:function () {
+						console.log('beforeMount已执行！')
+					},
+					mounted:function () {
+						console.log('mounted已执行！')
+					},
+					//data数据更新时运作
+					beforeUpdate:function () {
+						console.log('beforUpdate已执行！')
+					},
+					updated:function () {
+						console.log('updated已执行！')
+					},
+					//需要控制台手动调用vm.$destroy()
+					beforeDestroy:function(){
+						console.log('beforeDestroy已执行！')
+					},
+					destroyed:function(){
+						console.log('destroyed已执行！')
+					}
+				})
+				setTimeout(function () {
+					vm.$data.info='HELLO Guys'
+				}, 1000)
+			</script>
+	</body>
+</html>
