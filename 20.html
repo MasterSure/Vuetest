@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			h2{
+				background: lightgray;
+				text-align: center;
+				cursor: pointer;
+				user-select: none;
+			}
+			.check{
+				color: orange;
+			}
+		</style>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h2 :style="styleObj" @click="handleClick" >HELLO WORLD</h2>
+			<h3 :style="[styleObj,{fontSize:'50px'}]" class="check">WELCOME</h3>
+		</div>
+		
+		
+		
+		<script type="text/javascript">
+			new Vue ({
+				el:'#app',
+				data:{
+					styleObj:{
+						color:'plum',
+						fontStyle:'italic'
+					}
+				},
+				methods:{ 
+					handleClick:function (){
+						
+						if (this.styleObj.color=='plum') {
+							this.styleObj.color='white'
+						} else{
+							this.styleObj.color='plum'
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
