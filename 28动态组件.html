@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">  
+			<!-- <son-one></son-one>
+			<son-two></son-two> -->
+			<!-- 动态组件 -->
+			<component :is="compName"></component>
+			<button @click="handleClick">组件切换</button>
+		</div>
+		
+		
+		<script type="text/javascript">
+			//子组件
+			Vue.component('sonOne',{
+				template:'<h2>组件ONE</h2>'
+			})
+			Vue.component('sonTwo',{
+				template:'<h2>组件Two</h2>'
+			})
+			//父组件
+			new Vue ({
+				el:'#app',
+				data:{
+					compName:'sonTwo'
+				},
+				methods:{
+					handleClick:function(){
+						// if (this.compName=='sonTwo') {
+						// 	this.compName='sonOne'
+						// } else{
+						// 	this.compName='sonTwo'
+						// }
+						// this.compName=='sonTwo'?this.compName='sonOne':this.compName='sonTwo',
+						this.compName=(this.compName=='sonTwo'?'sonOne':'sonTwo')
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
+
