@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				text-align: center;
+				padding-top: 100px;
+			}
+			/* 进场动画开始 */
+			/* .v-enter{
+				opacity: 0;
+				transform: translateY(100px);
+			} */
+			/* 进场动画结束 */
+			.v-enter-active{
+				
+				animation: shake 3s;
+			}
+			 /* 出场动画开始 */
+			.v-leave-active{
+				animation: shake 3s reverse;
+			}
+			@keyframes shake{
+				0%{transform: scale(1);}
+				50%{transform: scale(1.5);}
+				100%{transform: scale(1);}
+			}
+			/* 出场动画结束 */
+			/* .v-leave-to{
+				opacity: 0;
+				transform: translateY(100px);
+			} */
+		</style>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">  
+			<button @click="handleClick">显示切换</button>
+			<transition >
+				<h2 v-if="show">HELLO WORD</h2>
+			</transition>
+		</div>
+		
+		
+		<script type="text/javascript">
+			
+			//父组件
+			new Vue ({
+				el:'#app',
+				data:{
+					show:true
+				},
+				methods:{
+					handleClick:function (){
+						this.show=!this.show
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
+
